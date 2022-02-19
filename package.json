@@ -1,8 +1,11 @@
 {
+  "type": "module",
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/ILokalin/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/ILokalin/frontend-project-lvl1/actions)",
-  "main": "index.js",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
   "scripts": {
     "test": "jest --coverage"
   },
@@ -11,7 +14,7 @@
     "url": "git+https://github.com/ILokalin/frontend-project-lvl1.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "iLokalin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ILokalin/frontend-project-lvl1/issues"
