@@ -1,23 +1,35 @@
+import { createQuestion } from './helper.js';
 import {
-  showGreeting,
-  getName,
-  showMessage,
+  showQuestion,
+  showWrong,
+  getAnswer,
+  showMessage, showMessageByCondition,
 } from '../../utils/console.js';
-import {
-  initAnswersState,
-  showRules,
-} from './helper.js';
-import { FINAL_TYPES } from './constants.js';
-import { processGame } from './processGame.js';
-import { welcomeMsg } from '../../utils/messages.js';
+import { GAME_RESULTS } from '../../utils/constants.js';
+import { CORRECT_ANSWER_COUNTER_LIMIT } from './constants.js';
+import { correctMsg } from '../../utils/messages.js';
+import { ruleMsg } from './messages.js';
 
-const app = () => {
-  showMessage(welcomeMsg);
-  const name = getName();
-  showGreeting(name);
-  showRules();
-  const gameResult = processGame(initAnswersState());
-  FINAL_TYPES[gameResult](name);
+const runGame = (answersStore) => {
+  const { number, expectedAnswer } = createQuestion();
+  const { incrementCounter, getCounter } = answersStore;
+  const isFirstRun = getCounter() === 0;
+  showMessageByCondition(isFirstRun, ruleMsg);
+  showQuestion(number);
+  const answer = getAnswer(number);
+
+  if (answer.toLowerCase() !== expectedAnswer) {
+    showWrong(answer, expectedAnswer);
+    return GAME_RESULTS.LOSE;
+  }
+
+  incrementCounter();
+  showMessage(correctMsg);
+  if (getCounter() < CORRECT_ANSWER_COUNTER_LIMIT) {
+    return runGame(answersStore);
+  }
+
+  return GAME_RESULTS.WIN;
 };
 
-export default app;
+export default runGame;

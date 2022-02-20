@@ -6,26 +6,60 @@ import {
   expect,
 } from '@jest/globals';
 import readlineSync from 'readline-sync';
-import * as Game from '../processGame.js';
-import app from '../index.js';
+import runGame from '../index.js';
+import * as helper from '../helper.js';
 import { GAME_RESULTS } from '../../../utils/constants.js';
 
-describe('brain-even processGame', () => {
+describe('brain-even runGame', () => {
   beforeEach(() => {
     console.log = jest.fn();
   });
-  it('should be show congratulation', () => {
-    readlineSync.question = jest.fn().mockReturnValue('Alex');
+  it('runGame should be return WIN with correct answers', () => {
     // eslint-disable-next-line
-    Game["processGame"] = jest.fn().mockReturnValueOnce(GAME_RESULTS.WIN);
-    app();
-    expect(console.log).toHaveBeenLastCalledWith('Congratulations, Alex!');
+    helper["createQuestion"] = jest.fn()
+      .mockReturnValueOnce({ number: 34, expectedAnswer: 'yes' })
+      .mockReturnValueOnce({ number: 1, expectedAnswer: 'no' })
+      .mockReturnValueOnce({ number: 52, expectedAnswer: 'yes' });
+    readlineSync.question = jest.fn()
+      .mockReturnValueOnce('yes')
+      .mockReturnValueOnce('no')
+      .mockReturnValueOnce('yes');
+    const state = helper.initAnswersState();
+
+    expect(runGame(state)).toBe(GAME_RESULTS.WIN);
+    expect(state.getCounter()).toBe(3);
+    expect(console.log.mock.calls).toEqual([
+      ['Answer "yes" if the number is even, otherwise answer "no".'],
+      ['Question: 34'],
+      ['Correct!'],
+      ['Question: 1'],
+      ['Correct!'],
+      ['Question: 52'],
+      ['Correct!'],
+    ]);
   });
-  it('shold by show By message', () => {
-    readlineSync.question = jest.fn().mockReturnValue('Alex');
+  it('processGame should be return LOSE with incorrect answers', () => {
     // eslint-disable-next-line
-    Game["processGame"] = jest.fn().mockReturnValueOnce(GAME_RESULTS.LOSE);
-    app();
-    expect(console.log).toHaveBeenLastCalledWith('Let\'s try again, Alex!');
+    helper["createQuestion"] = jest.fn()
+      .mockReturnValueOnce({ number: 5, expectedAnswer: 'no' })
+      .mockReturnValueOnce({ number: 10, expectedAnswer: 'yes' })
+      .mockReturnValueOnce({ number: 52, expectedAnswer: 'yes' });
+    readlineSync.question = jest.fn()
+      .mockReturnValueOnce('no')
+      .mockReturnValueOnce('yes')
+      .mockReturnValueOnce('no');
+    const state = helper.initAnswersState();
+
+    expect(runGame(state)).toBe(GAME_RESULTS.LOSE);
+    expect(state.getCounter()).toBe(2);
+    expect(console.log.mock.calls).toEqual([
+      ['Answer "yes" if the number is even, otherwise answer "no".'],
+      ['Question: 5'],
+      ['Correct!'],
+      ['Question: 10'],
+      ['Correct!'],
+      ['Question: 52'],
+      ['\'no\' is wrong answer ;(. Correct answer was \'yes\'.'],
+    ]);
   });
 });

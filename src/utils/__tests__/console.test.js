@@ -9,17 +9,23 @@ import readlineSync from 'readline-sync';
 import {
   getName,
   getAnswer,
-  showCangrat,
+  showCongratulation,
   showBy,
   showWrong,
   showGreeting,
   showPrompt,
   showQuestion,
+  showMessageByCondition,
+  showMessage,
 } from '../console.js';
 
 describe('console utils', () => {
   beforeEach(() => {
     console.log = jest.fn();
+  });
+  it('showMessage', () => {
+    showMessage('hello', 'John');
+    expect(console.log).toHaveBeenCalledWith('hello', 'John');
   });
   it('showGreeting', () => {
     showGreeting('John');
@@ -34,7 +40,7 @@ describe('console utils', () => {
     expect(console.log).toHaveBeenCalledWith('Question: 67');
   });
   it('showCangrat', () => {
-    showCangrat('Bill');
+    showCongratulation('Bill');
     expect(console.log).toHaveBeenCalledWith('Congratulations, Bill!');
   });
   it('showWrong', () => {
@@ -44,6 +50,14 @@ describe('console utils', () => {
   it('showBy', () => {
     showBy('Bill');
     expect(console.log).toHaveBeenCalledWith('Let\'s try again, Bill!');
+  });
+  it('showMessageByCondition should be show messages', () => {
+    showMessageByCondition(true, 'Hello', 'world');
+    expect(console.log).toHaveBeenCalledWith('Hello', 'world');
+  });
+  it('showMessageByCondition should be ignore messages', () => {
+    showMessageByCondition(false, 'Hello', 'world');
+    expect(console.log).toHaveBeenCalledTimes(0);
   });
   it('getName', () => {
     readlineSync.question = jest.fn(() => 'Egor');

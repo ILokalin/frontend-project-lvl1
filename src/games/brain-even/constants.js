@@ -5,7 +5,7 @@ import {
 } from '../../utils/constants.js';
 import {
   showBy,
-  showCangrat,
+  showCongratulation,
 } from '../../utils/console.js';
 
 export const CORRECT_ANSWER_COUNTER_LIMIT = 3;
@@ -16,6 +16,6 @@ export const ANSWERS_VARIANTS = Object.freeze({
 });
 
 export const FINAL_TYPES = Object.freeze({
-  [GAME_RESULTS.WIN]: (name) => showCangrat(name),
+  [GAME_RESULTS.WIN]: (name) => showCongratulation(name),
   [GAME_RESULTS.LOSE]: (name) => showBy(name),
 });
