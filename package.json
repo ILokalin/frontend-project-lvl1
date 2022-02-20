@@ -4,16 +4,16 @@
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/ILokalin/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/ILokalin/frontend-project-lvl1/actions)",
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "npx jest --coverage"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ILokalin/frontend-project-lvl1.git"
   },
-  "keywords": [],
   "author": "iLokalin",
   "license": "ISC",
   "bugs": {
@@ -21,11 +21,20 @@
   },
   "homepage": "https://github.com/ILokalin/frontend-project-lvl1#readme",
   "devDependencies": {
+    "@jest/globals": "^27.5.1",
+    "babel-jest": "^27.5.1",
     "eslint": "^8.9.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4"
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.1.1",
+    "jest": "^27.5.1",
+    "jest-cli": "^27.5.1"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.16.11",
     "readline-sync": "^1.4.10"
+  },
+  "jest": {
+    "verbose": true
   }
 }
