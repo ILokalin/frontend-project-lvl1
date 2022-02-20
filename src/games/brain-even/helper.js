@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import {
   getRandomByRange,
   getNumberType,
@@ -6,8 +5,6 @@ import {
 import { ANSWERS_VARIANTS } from './constants.js';
 
 export const showRules = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-export const getAnswer = (questionNumber) => readlineSync.question(`look ${questionNumber}`);
 
 export const initAnswersState = () => {
   let correctAnswerCounter = 0;
