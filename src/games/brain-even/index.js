@@ -3,9 +3,10 @@ import {
   showQuestion,
   showWrong,
   getAnswer,
-  showMessage, showMessageByCondition,
+  showMessage,
+  showMessageByCondition,
 } from '../../utils/console.js';
-import { GAME_RESULTS } from '../../utils/constants.js';
+import { GAME_RESULTS } from '../../constants.js';
 import { CORRECT_ANSWER_COUNTER_LIMIT } from './constants.js';
 import { correctMsg } from '../../utils/messages.js';
 import { ruleMsg } from './messages.js';

@@ -8,7 +8,8 @@ import {
 import readlineSync from 'readline-sync';
 import runGame from '../index.js';
 import * as helper from '../helper.js';
-import { GAME_RESULTS } from '../../../utils/constants.js';
+import { GAME_RESULTS } from '../../../constants.js';
+import initAnswersStore from '../../../answersStore.js';
 
 describe('brain-even runGame', () => {
   beforeEach(() => {
@@ -24,7 +25,7 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('yes')
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes');
-    const state = helper.initAnswersState();
+    const state = initAnswersStore();
 
     expect(runGame(state)).toBe(GAME_RESULTS.WIN);
     expect(state.getCounter()).toBe(3);
@@ -48,7 +49,7 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes')
       .mockReturnValueOnce('no');
-    const state = helper.initAnswersState();
+    const state = initAnswersStore();
 
     expect(runGame(state)).toBe(GAME_RESULTS.LOSE);
     expect(state.getCounter()).toBe(2);

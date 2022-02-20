@@ -1,5 +1,3 @@
-import { NUMBER_TYPES } from './constants.js';
-
 export const getFloatRandom = (n, m) => {
   const min = Math.min(n, m);
   const range = Math.abs(n - m);
@@ -9,5 +7,3 @@ export const getFloatRandom = (n, m) => {
 export const getRandomEven = (min, max) => Math.round(getFloatRandom(min, max) / 2) * 2;
 
 export const getRandomByRange = (min, max) => Math.round(getFloatRandom(min, max));
-
-export const getNumberType = (value) => NUMBER_TYPES.get(value % 2);

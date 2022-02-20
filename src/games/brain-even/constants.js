@@ -1,12 +1,17 @@
 import {
-  EVEN,
-  ODD,
   GAME_RESULTS,
-} from '../../utils/constants.js';
+} from '../../constants.js';
 import {
   showBy,
   showCongratulation,
 } from '../../utils/console.js';
+
+export const EVEN = 'EVEN';
+export const ODD = 'ODD';
+export const NUMBER_TYPES = new Map([
+  [0, EVEN],
+  [1, ODD],
+]);
 
 export const CORRECT_ANSWER_COUNTER_LIMIT = 3;
 

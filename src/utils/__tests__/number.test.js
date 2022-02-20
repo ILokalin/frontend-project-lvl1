@@ -7,7 +7,6 @@ import {
 import {
   getFloatRandom,
   getRandomEven,
-  getNumberType,
   getRandomByRange,
 } from '../numbers.js';
 
@@ -61,14 +60,6 @@ describe('number utils', () => {
     it('should be return between of limit', () => {
       Math.random = jest.fn(() => 0.5);
       expect(getRandomByRange(0, 32)).toBe(16);
-    });
-  });
-  describe('getNumberType', () => {
-    it('should be return even', () => {
-      expect(getNumberType(48)).toBe('EVEN');
-    });
-    it('should be return odd', () => {
-      expect(getNumberType(53)).toBe('ODD');
     });
   });
 });

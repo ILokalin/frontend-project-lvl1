@@ -1,24 +1,10 @@
+import { getRandomByRange } from '../../utils/numbers.js';
 import {
-  getRandomByRange,
-  getNumberType,
-} from '../../utils/numbers.js';
-import { ANSWERS_VARIANTS } from './constants.js';
+  ANSWERS_VARIANTS,
+  NUMBER_TYPES,
+} from './constants.js';
 
-export const initAnswersState = () => {
-  let correctAnswerCounter = 0;
-
-  const incrementCounter = () => {
-    correctAnswerCounter += 1;
-    return correctAnswerCounter;
-  };
-
-  const getCounter = () => correctAnswerCounter;
-
-  return {
-    incrementCounter,
-    getCounter,
-  };
-};
+export const getNumberType = (value) => NUMBER_TYPES.get(value % 2);
 
 export const createQuestion = () => {
   const number = getRandomByRange(0, 100);
