@@ -4,4 +4,5 @@
 
 ### Asciinema
 
-- [x] [Link to Brain-even](https://asciinema.org/a/ia1cT44W8ALbKq0K5W5EbZsx1)
+- [x] [Link to brain-even game](https://asciinema.org/a/ia1cT44W8ALbKq0K5W5EbZsx1)
+- [x] [Link to brain-calc game](https://asciinema.org/a/ddXDQva66JsbAp11rQjDJZbq7)
