@@ -7,10 +7,10 @@ import {
 export const getNumberType = (value) => NUMBER_TYPES.get(value % 2);
 
 export const createQuestion = () => {
-  const number = getRandomByRange(0, 100);
+  const question = getRandomByRange(0, 100);
 
   return {
-    number,
-    expectedAnswer: ANSWERS_VARIANTS[getNumberType(number)],
+    question,
+    expectedAnswer: ANSWERS_VARIANTS[getNumberType(question)],
   };
 };

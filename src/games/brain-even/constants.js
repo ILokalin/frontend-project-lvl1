@@ -24,3 +24,5 @@ export const FINAL_TYPES = Object.freeze({
   [GAME_RESULTS.WIN]: (name) => showCongratulation(name),
   [GAME_RESULTS.LOSE]: (name) => showBy(name),
 });
+
+export const rulesMsg = 'Answer "yes" if the number is even, otherwise answer "no".';

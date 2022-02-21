@@ -13,7 +13,7 @@ describe('brain-even game helper', () => {
   it('createQuestion', () => {
     Math.random = jest.fn(() => 0.5);
     expect(createQuestion()).toEqual({
-      number: 50,
+      question: 50,
       expectedAnswer: 'yes',
     });
   });

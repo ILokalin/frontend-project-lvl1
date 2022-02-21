@@ -1,4 +1,4 @@
-const initAnswersStore = () => {
+const initStore = () => {
   let correctAnswerCounter = 0;
 
   const incrementCounter = () => {
@@ -14,4 +14,4 @@ const initAnswersStore = () => {
   };
 };
 
-export default initAnswersStore;
+export default initStore;
