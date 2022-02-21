@@ -17,7 +17,7 @@ const runGame = (answersStore) => {
   const isFirstRun = getCounter() === 0;
   showMessageByCondition(isFirstRun, ruleMsg);
   showQuestion(number);
-  const answer = getAnswer(number);
+  const answer = getAnswer();
 
   if (answer.toLowerCase() !== expectedAnswer) {
     showWrong(answer, expectedAnswer);
