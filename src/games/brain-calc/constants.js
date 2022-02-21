@@ -10,6 +10,4 @@ export const EXPRESSIONS = Object.freeze({
   [OPERATORS.MULTI]: (a, b) => a * b,
 });
 
-export const CORRECT_ANSWER_COUNTER_LIMIT = 3;
-
 export const rulesMsg = 'What is the result of the expression?';

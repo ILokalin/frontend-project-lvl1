@@ -8,7 +8,10 @@ import {
 import readlineSync from 'readline-sync';
 import runGame from '../game.js';
 import * as helper from '../games/brain-even/helper.js';
-import { GAME_RESULTS } from '../constants.js';
+import {
+  CORRECT_ANSWER_COUNTER_LIMIT,
+  GAME_RESULTS,
+} from '../constants.js';
 import initStore from '../store.js';
 import getOptions from '../games/brain-even/model.js';
 
@@ -28,7 +31,7 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('yes');
     const state = initStore();
 
-    expect(runGame(state, ...getOptions())).toBe(GAME_RESULTS.WIN);
+    expect(runGame(state, CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions())).toBe(GAME_RESULTS.WIN);
     expect(state.getCounter()).toBe(3);
     expect(console.log.mock.calls).toEqual([
       ['Answer "yes" if the number is even, otherwise answer "no".'],
@@ -52,7 +55,7 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('no');
     const state = initStore();
 
-    expect(runGame(state, ...getOptions())).toBe(GAME_RESULTS.LOSE);
+    expect(runGame(state, CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions())).toBe(GAME_RESULTS.LOSE);
     expect(state.getCounter()).toBe(2);
     expect(console.log.mock.calls).toEqual([
       ['Answer "yes" if the number is even, otherwise answer "no".'],

@@ -8,10 +8,11 @@ import {
 import { GAME_RESULTS } from './constants.js';
 import { correctMsg } from './utils/messages.js';
 
-const runGame = (store, createQuestion, limit, rulesMsg = '') => {
+const runGame = (store, limit, createQuestion, rulesMsg = '') => {
   const { question, expectedAnswer } = createQuestion();
   const { incrementCounter, getCounter } = store;
   showMessageByCondition(rulesMsg, rulesMsg);
+
   showQuestion(question);
   const answer = getAnswer().toLowerCase();
 
@@ -23,7 +24,7 @@ const runGame = (store, createQuestion, limit, rulesMsg = '') => {
   incrementCounter();
   showMessage(correctMsg);
   if (getCounter() < limit) {
-    return runGame(store, createQuestion, limit);
+    return runGame(store, limit, createQuestion);
   }
 
   return GAME_RESULTS.WIN;

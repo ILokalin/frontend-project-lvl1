@@ -4,13 +4,10 @@ import {
   it, jest,
 } from '@jest/globals';
 import getOptions from '../model.js';
-import {
-  CORRECT_ANSWER_COUNTER_LIMIT,
-  rulesMsg,
-} from '../constants.js';
+import { rulesMsg } from '../constants.js';
 
 describe('brainCalc model', () => {
-  const [createQuestion, limit, rules] = getOptions();
+  const [createQuestion, rules] = getOptions();
   it('createQuestion by brainCalc', () => {
     Math.random = jest.fn()
       .mockReturnValueOnce(0.43)
@@ -21,9 +18,6 @@ describe('brainCalc model', () => {
       question: '43 - 24',
       expectedAnswer: '19',
     });
-  });
-  it('should be equal limit', () => {
-    expect(limit).toBe(CORRECT_ANSWER_COUNTER_LIMIT);
   });
   it('should be message of brainCalc game', () => {
     expect(rules).toBe(rulesMsg);
