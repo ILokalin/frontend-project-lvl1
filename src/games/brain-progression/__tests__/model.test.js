@@ -7,19 +7,21 @@ import getOptions from '../model.js';
 import { rulesMsg } from '../constants.js';
 import * as utils from '../../../utils/numbers.js';
 
-describe('brainGCD model', () => {
+describe('brainProgression model', () => {
   const [createQuestion, rules] = getOptions();
-  it('createQuestion by brainGCD', () => {
+  it('createQuestion by brainProgression', () => {
     // eslint-disable-next-line no-import-assign
     utils.getRandomByRange = jest.fn()
-      .mockReturnValueOnce(25)
-      .mockReturnValueOnce(50);
+      .mockReturnValueOnce(20)
+      .mockReturnValueOnce(5)
+      .mockReturnValueOnce(2)
+      .mockReturnValueOnce(3);
     expect(createQuestion()).toEqual({
-      question: '25 50',
-      expectedAnswer: '25',
+      question: '20 22 24 .. 28',
+      expectedAnswer: '26',
     });
   });
-  it('should be message of brainGCD game', () => {
+  it('should be message of brainProgression game', () => {
     expect(rules).toBe(rulesMsg);
   });
 });

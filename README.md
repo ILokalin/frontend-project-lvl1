@@ -6,3 +6,6 @@
 
 - [x] [Link to brain-even game](https://asciinema.org/a/ia1cT44W8ALbKq0K5W5EbZsx1)
 - [x] [Link to brain-calc game](https://asciinema.org/a/ddXDQva66JsbAp11rQjDJZbq7)
+- [x] [Link to brain-gcd game](https://asciinema.org/a/MvpNtKSAxmjbeNUhRn9lnxfbk)
+- [x] [Link to brain-progression game WIN](https://asciinema.org/a/rRaKoRacBHTSgGKMeDVYkOBV0)
+  [LOSE](https://asciinema.org/a/v18E9C9dktF8qJX9RAj8DZQhJ)
