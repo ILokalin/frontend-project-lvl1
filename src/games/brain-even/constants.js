@@ -13,7 +13,7 @@ export const NUMBER_TYPES = new Map([
   [1, ODD],
 ]);
 
-export const ANSWERS_VARIANTS = Object.freeze({
+export const ANSWERS = Object.freeze({
   [EVEN]: 'yes',
   [ODD]: 'no',
 });

@@ -6,17 +6,17 @@ import {
 import getOptions from '../model.js';
 import { rulesMsg } from '../constants.js';
 
-describe('brainCalc model', () => {
+describe('brainGCD model', () => {
   const [createQuestion, rules] = getOptions();
-  it('createQuestion by brainCalc', () => {
+  it('createQuestion containt question and answer', () => {
     expect(createQuestion()).toEqual(
       expect.objectContaining({
-        question: expect.any(String),
+        question: expect.any(Number),
         expectedAnswer: expect.any(String),
       }),
     );
   });
-  it('should be message of brainCalc game', () => {
+  it('should be message of brainGCD game', () => {
     expect(rules).toBe(rulesMsg);
   });
 });

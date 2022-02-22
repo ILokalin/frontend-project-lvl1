@@ -1,6 +1,6 @@
 import { getRandomByRange } from '../../utils/index.js';
 import {
-  ANSWERS_VARIANTS,
+  ANSWERS,
   NUMBER_TYPES,
 } from './constants.js';
 
@@ -11,6 +11,6 @@ export const createQuestion = () => {
 
   return {
     question,
-    expectedAnswer: ANSWERS_VARIANTS[getNumberType(question)],
+    expectedAnswer: ANSWERS[getNumberType(question)],
   };
 };
