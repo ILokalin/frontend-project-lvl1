@@ -5,7 +5,7 @@ import {
 } from '@jest/globals';
 import getOptions from '../model.js';
 import { rulesMsg } from '../constants.js';
-import * as utils from '../../../utils/numbers.js';
+import * as utils from '../../../utils/index.js';
 
 describe('brainProgression model', () => {
   const [createQuestion, rules] = getOptions();

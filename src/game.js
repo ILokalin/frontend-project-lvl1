@@ -5,13 +5,15 @@ import {
   showQuestion,
   showWrong,
 } from './utils/console.js';
-import { GAME_RESULTS } from './constants.js';
-import { correctMsg } from './utils/messages.js';
+import {
+  GAME_RESULTS,
+  correctMsg,
+} from './constants.js';
 
 const runGame = (store, limit, createQuestion, rulesMsg = '') => {
   const { question, expectedAnswer } = createQuestion();
   const { incrementCounter, getCounter } = store;
-  showMessageByCondition(rulesMsg, rulesMsg);
+  showMessageByCondition(rulesMsg);
 
   showQuestion(question);
   const answer = getAnswer().toLowerCase();

@@ -13,7 +13,6 @@ import {
   showBy,
   showWrong,
   showGreeting,
-  showPrompt,
   showQuestion,
   showMessageByCondition,
   showMessage,
@@ -30,10 +29,6 @@ describe('console utils', () => {
   it('showGreeting', () => {
     showGreeting('John');
     expect(console.log).toHaveBeenCalledWith('Hello, John');
-  });
-  it('showPrompt', () => {
-    showPrompt();
-    expect(console.log).toHaveBeenCalledWith('Welcome to the Brain Games!');
   });
   it('showQuestion', () => {
     showQuestion(67);
@@ -52,11 +47,11 @@ describe('console utils', () => {
     expect(console.log).toHaveBeenCalledWith('Let\'s try again, Bill!');
   });
   it('showMessageByCondition should be show messages', () => {
-    showMessageByCondition(true, 'Hello', 'world');
-    expect(console.log).toHaveBeenCalledWith('Hello', 'world');
+    showMessageByCondition('Hello world');
+    expect(console.log).toHaveBeenCalledWith('Hello world');
   });
   it('showMessageByCondition should be ignore messages', () => {
-    showMessageByCondition(false, 'Hello', 'world');
+    showMessageByCondition('');
     expect(console.log).toHaveBeenCalledTimes(0);
   });
   it('getName', () => {

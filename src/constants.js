@@ -4,3 +4,6 @@ export const GAME_RESULTS = Object.freeze({
 });
 
 export const CORRECT_ANSWER_COUNTER_LIMIT = 3;
+
+export const correctMsg = 'Correct!';
+export const welcomeMsg = 'Welcome to the Brain Games!';

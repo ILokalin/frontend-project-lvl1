@@ -3,7 +3,7 @@ import {
   expect,
   it, jest,
 } from '@jest/globals';
-import * as utils from '../../../utils/numbers.js';
+import * as utils from '../../../utils/index.js';
 import {
   createQuestion,
   getSequence,

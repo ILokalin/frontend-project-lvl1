@@ -1,16 +1,15 @@
 import readlineSync from 'readline-sync';
 
 export const showMessage = (...args) => console.log(...args);
-export const showGreeting = (name) => console.log(`Hello, ${name}`);
-export const showPrompt = () => console.log('Welcome to the Brain Games!');
-export const showQuestion = (question) => console.log(`Question: ${question}`);
-export const showCongratulation = (name) => console.log(`Congratulations, ${name}!`);
-export const showBy = (name) => console.log(`Let's try again, ${name}!`);
-export const showWrong = (answer, expectedAnswer) => console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`);
+export const showGreeting = (name) => showMessage(`Hello, ${name}`);
+export const showQuestion = (question) => showMessage(`Question: ${question}`);
+export const showCongratulation = (name) => showMessage(`Congratulations, ${name}!`);
+export const showBy = (name) => showMessage(`Let's try again, ${name}!`);
+export const showWrong = (answer, expectedAnswer) => showMessage(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`);
 
-export const showMessageByCondition = (condition, ...args) => {
-  if (condition) {
-    showMessage(...args);
+export const showMessageByCondition = (message) => {
+  if (message) {
+    showMessage(message);
   }
 };
 

@@ -1,4 +1,4 @@
-import { getRandomByRange } from '../../utils/numbers.js';
+import { getRandomByRange } from '../../utils/index.js';
 import { EXPRESSIONS, OPERATORS } from './constants.js';
 
 export const getRandomOperator = () => {
