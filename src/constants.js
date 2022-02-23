@@ -5,8 +5,10 @@ export const GAME_RESULTS = Object.freeze({
   LOSE: 'LOSE',
 });
 
-export const START_ANSWER_COUNT = 1;
-export const CORRECT_ANSWER_COUNTER_LIMIT = 3;
+export const ANSWER_COUNT = Object.freeze({
+  START: 1,
+  LIMIT: 3,
+});
 
 export const correctMsg = 'Correct!';
 export const welcomeMsg = 'Welcome to the Brain Games!';

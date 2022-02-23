@@ -8,7 +8,7 @@ import {
   createQuestion,
   getExpression,
   getRandomOperator,
-} from '../helper.js';
+} from '../question.js';
 
 describe('brainCalc helper', () => {
   const randomSpy = jest.fn();

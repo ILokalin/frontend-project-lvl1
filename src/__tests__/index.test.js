@@ -7,7 +7,7 @@ import {
 } from '@jest/globals';
 import readlineSync from 'readline-sync';
 import * as runGame from '../game.js';
-import app from '../index.js';
+import app from '../app.js';
 import { GAMES } from '../model.js';
 import {
   GAME_RESULTS,

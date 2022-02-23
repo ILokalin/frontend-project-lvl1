@@ -7,7 +7,7 @@ import * as utils from '../../../utils.js';
 import {
   createQuestion,
   getSequence,
-} from '../helper.js';
+} from '../question.js';
 
 describe('brain-progression', () => {
   it('getSequence', () => {

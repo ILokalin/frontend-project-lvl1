@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 import readlineSync from 'readline-sync';
 
 export const getRandomByRange = (n, m) => {

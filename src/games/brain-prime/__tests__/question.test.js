@@ -8,7 +8,7 @@ import {
   createQuestion,
   getExpectedAnswer,
   getNearOdd,
-} from '../helper.js';
+} from '../question.js';
 
 describe('brain-prime helper', () => {
   describe('getNearOdd', () => {

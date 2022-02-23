@@ -7,7 +7,7 @@ import * as utils from '../../../utils.js';
 import {
   createQuestion,
   getGreatestCommonDivisor,
-} from '../helper.js';
+} from '../question.js';
 
 describe('brain-gcd helper', () => {
   describe('getGreatestCommonDivisor', () => {

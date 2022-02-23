@@ -1,4 +1,4 @@
-import { createQuestion } from './helper.js';
+import { createQuestion } from './question.js';
 import { rulesMsg } from './constants.js';
 
 const getOptions = () => ({ createQuestion, rulesMsg });

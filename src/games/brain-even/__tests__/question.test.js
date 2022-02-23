@@ -7,7 +7,7 @@ import {
 import {
   createQuestion,
   getNumberType,
-} from '../helper.js';
+} from '../question.js';
 
 describe('brain-even game helper', () => {
   it('createQuestion', () => {
