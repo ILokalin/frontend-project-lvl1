@@ -7,9 +7,18 @@ import * as utils from '../../../utils.js';
 import {
   createQuestion,
   getExpectedAnswer,
+  getNearOdd,
 } from '../helper.js';
 
 describe('brain-prime helper', () => {
+  describe('getNearOdd', () => {
+    it('should be correct value to odd', () => {
+      expect(getNearOdd(6)).toBe(7);
+    });
+    it('should be correct without changes', () => {
+      expect(getNearOdd(79)).toBe(79);
+    });
+  });
   describe('getExpectedAnswer', () => {
     it('should be test 2 as prime', () => {
       expect(getExpectedAnswer(2)).toBe('yes');

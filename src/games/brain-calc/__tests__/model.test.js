@@ -7,7 +7,7 @@ import getOptions from '../model.js';
 import { rulesMsg } from '../constants.js';
 
 describe('brainCalc model', () => {
-  const [createQuestion, rules] = getOptions();
+  const { createQuestion, rulesMsg: rules } = getOptions();
   it('createQuestion by brainCalc', () => {
     expect(createQuestion()).toEqual(
       expect.objectContaining({

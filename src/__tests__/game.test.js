@@ -32,7 +32,7 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes');
 
-    expect(runGame(START_ANSWER_COUNT, CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions()))
+    expect(runGame(START_ANSWER_COUNT, CORRECT_ANSWER_COUNTER_LIMIT, getOptions()))
       .toBe(GAME_RESULTS.WIN);
     expect(console.log.mock.calls).toEqual([
       ['Answer "yes" if the number is even, otherwise answer "no".'],
@@ -55,7 +55,7 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('yes')
       .mockReturnValueOnce('no');
 
-    expect(runGame(START_ANSWER_COUNT, CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions()))
+    expect(runGame(START_ANSWER_COUNT, CORRECT_ANSWER_COUNTER_LIMIT, getOptions()))
       .toBe(GAME_RESULTS.LOSE);
     expect(console.log.mock.calls).toEqual([
       ['Answer "yes" if the number is even, otherwise answer "no".'],

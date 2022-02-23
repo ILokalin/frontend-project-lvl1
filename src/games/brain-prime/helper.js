@@ -4,6 +4,9 @@ import {
   LIMITS,
 } from './constants.js';
 
+// eslint-disable-next-line no-bitwise
+export const getNearOdd = (value) => value | 1;
+
 export const getExpectedAnswer = (value) => {
   if (value === 2) return ANSWERS.PRIME;
   if (value % 2 === 0) return ANSWERS.COMPOSITE;
@@ -13,9 +16,9 @@ export const getExpectedAnswer = (value) => {
     if (value % divisor === 0) return ANSWERS.COMPOSITE;
     return getPrime(divisor - 2);
   };
-  // eslint-disable-next-line no-bitwise
-  const maxTestValue = Math.floor(Math.sqrt(value)) | 1;
-  return getPrime(maxTestValue);
+
+  const maxTestLimit = getNearOdd(Math.floor(Math.sqrt(value)));
+  return getPrime(maxTestLimit);
 };
 
 export const createQuestion = () => {

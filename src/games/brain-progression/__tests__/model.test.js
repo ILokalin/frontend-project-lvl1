@@ -8,7 +8,7 @@ import { rulesMsg } from '../constants.js';
 import * as utils from '../../../utils.js';
 
 describe('brainProgression model', () => {
-  const [createQuestion, rules] = getOptions();
+  const { createQuestion, rulesMsg: rules } = getOptions();
   it('createQuestion by brainProgression', () => {
     // eslint-disable-next-line no-import-assign
     utils.getRandomByRange = jest.fn()
