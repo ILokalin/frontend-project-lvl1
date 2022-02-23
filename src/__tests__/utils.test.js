@@ -9,7 +9,6 @@ import readlineSync from 'readline-sync';
 import {
   getRandomByRange,
   getConsole,
-  showMessage,
   showMessageByCondition,
 } from '../utils.js';
 
@@ -40,10 +39,6 @@ describe('number utils', () => {
     readlineSync.question = jest.fn(() => 'Egor');
     expect(getConsole('sample message')).toBe('Egor');
     expect(readlineSync.question).toHaveBeenCalledWith('sample message');
-  });
-  it('showMessage', () => {
-    showMessage('hello', 'John');
-    expect(console.log).toHaveBeenCalledWith('hello', 'John');
   });
   describe('showMessageByCondition', () => {
     it('should be show messages', () => {

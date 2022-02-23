@@ -6,10 +6,9 @@ export const getRandomByRange = (n, m) => {
   return Math.round(Math.random() * range + min);
 };
 
-export const showMessage = (...args) => console.log(...args);
 export const showMessageByCondition = (message) => {
   if (message) {
-    showMessage(message);
+    console.log(message);
   }
 };
 

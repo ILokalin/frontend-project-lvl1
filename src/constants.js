@@ -1,5 +1,3 @@
-import { showMessage } from './utils.js';
-
 export const GAME_RESULTS = Object.freeze({
   WIN: 'WIN',
   LOSE: 'LOSE',
@@ -22,6 +20,6 @@ export const getNameMsg = 'May I have your name? ';
 export const getAnswerMsg = 'Your answer: ';
 
 export const FINAL_TYPES = Object.freeze({
-  [GAME_RESULTS.WIN]: (name) => showMessage(congratulationsMsg, name),
-  [GAME_RESULTS.LOSE]: (name) => showMessage(byeMsg, name),
+  [GAME_RESULTS.WIN]: (name) => console.log(congratulationsMsg, name),
+  [GAME_RESULTS.LOSE]: (name) => console.log(byeMsg, name),
 });

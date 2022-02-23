@@ -1,4 +1,4 @@
-import { showMessage, getConsole } from './utils.js';
+import { getConsole } from './utils.js';
 import {
   welcomeMsg,
   getNameMsg,
@@ -6,9 +6,9 @@ import {
 } from './constants.js';
 
 const greetPlayer = () => {
-  showMessage(welcomeMsg);
+  console.log(welcomeMsg);
   const name = getConsole(getNameMsg);
-  showMessage(greetingMsg, name);
+  console.log(greetingMsg, name);
   return name;
 };
 
