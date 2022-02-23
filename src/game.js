@@ -7,7 +7,7 @@ import {
   wrongMsg,
 } from './constants.js';
 
-const runGame = (correctAnswers, limit, { createQuestion, rulesMsg = '' }) => {
+const runGame = (correctAnswersCount, limit, { createQuestion, rulesMsg = '' }) => {
   const { question, expectedAnswer } = createQuestion();
   showMessageByCondition(rulesMsg);
   console.log(questionMsg, question);
@@ -19,8 +19,8 @@ const runGame = (correctAnswers, limit, { createQuestion, rulesMsg = '' }) => {
   }
 
   console.log(correctMsg);
-  if (correctAnswers < limit) {
-    return runGame(correctAnswers + 1, limit, { createQuestion });
+  if (correctAnswersCount < limit) {
+    return runGame(correctAnswersCount + 1, limit, { createQuestion });
   }
 
   return GAME_RESULTS.WIN;
