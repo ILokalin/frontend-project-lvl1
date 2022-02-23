@@ -2,6 +2,35 @@
 [![Actions Status](https://github.com/ILokalin/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/ILokalin/frontend-project-lvl1/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github.com/ILokalin/frontend-project-lvl1/maintainability)
 
+### Install
+```bash
+$ npm ci
+$ npm link
+```
+
+### Start games
+
+brain-even
+```bash
+$ brain-even
+```
+brain-calc
+```bash
+$ brain-calc
+```
+brain-gcd
+```bash
+$ brain-gcd
+```
+brain-progression
+```bash
+$ brain-progression
+```
+brain-prime
+```bash
+$ brain-prime
+```
+
 ### Asciinema
 - brain-even [WIN](https://asciinema.org/a/relid3fDDCpOaWgDiwSi0syeX) and [LOSE](https://asciinema.org/a/auf0AOSX03l8eCWFbmtdTN8nY)
 - brain-calc [WIN](https://asciinema.org/a/uv9rJPwy5oT0UH0PUmMLF59ET) and [LOSE](https://asciinema.org/a/LiCfkAxuxzbT5hyFvxBcgWiti)
