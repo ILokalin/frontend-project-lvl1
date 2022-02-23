@@ -12,8 +12,8 @@ export const ANSWER_COUNT = Object.freeze({
 
 export const correctMsg = 'Correct!';
 export const welcomeMsg = 'Welcome to the Brain Games!';
-export const greetingMsg = 'Hello, ';
-export const questionMsg = 'Question: ';
+export const greetingMsg = 'Hello,';
+export const questionMsg = 'Question:';
 export const congratulationsMsg = 'Congratulations, %s!';
 export const byeMsg = 'Let\'s try again, %s!';
 export const wrongMsg = '\'%s\' is wrong answer ;(. Correct answer was \'%s\'.';

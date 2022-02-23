@@ -17,7 +17,7 @@ describe('brain-even processGame', () => {
     greetPlayer();
     expect(console.log.mock.calls).toEqual([
       ['Welcome to the Brain Games!'],
-      ['Hello, ', 'Alex'],
+      ['Hello,', 'Alex'],
     ]);
   });
 });
