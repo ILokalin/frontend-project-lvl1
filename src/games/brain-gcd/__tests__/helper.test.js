@@ -3,7 +3,7 @@ import {
   expect,
   it, jest,
 } from '@jest/globals';
-import * as utils from '../../../utils/index.js';
+import * as utils from '../../../utils.js';
 import {
   createQuestion,
   getGreatestCommonDivisor,

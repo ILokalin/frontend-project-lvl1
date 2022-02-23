@@ -1,4 +1,4 @@
-import { getRandomByRange } from '../../utils/index.js';
+import { getRandomByRange } from '../../utils.js';
 import { LIMITS } from './constants.js';
 
 export const getGreatestCommonDivisor = (a, b) => {

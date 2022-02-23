@@ -1,4 +1,4 @@
-import { getRandomByRange } from '../../utils/index.js';
+import { getRandomByRange } from '../../utils.js';
 import {
   ANSWERS,
   LIMITS,

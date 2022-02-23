@@ -1,32 +1,30 @@
 import {
-  getAnswer,
+  getConsole,
   showMessage,
   showMessageByCondition,
-  showQuestion,
-  showWrong,
-} from './utils/console.js';
+} from './utils.js';
 import {
   GAME_RESULTS,
   correctMsg,
+  getAnswerMsg,
+  questionMsg,
+  wrongMsg,
 } from './constants.js';
 
-const runGame = (store, limit, createQuestion, rulesMsg = '') => {
+const runGame = (correctAnswers, limit, createQuestion, rulesMsg = '') => {
   const { question, expectedAnswer } = createQuestion();
-  const { incrementCounter, getCounter } = store;
   showMessageByCondition(rulesMsg);
-
-  showQuestion(question);
-  const answer = getAnswer().toLowerCase();
+  showMessage(questionMsg, question);
+  const answer = getConsole(getAnswerMsg).toLowerCase();
 
   if (answer !== expectedAnswer) {
-    showWrong(answer, expectedAnswer);
+    showMessage(wrongMsg, answer, expectedAnswer);
     return GAME_RESULTS.LOSE;
   }
 
-  incrementCounter();
   showMessage(correctMsg);
-  if (getCounter() < limit) {
-    return runGame(store, limit, createQuestion);
+  if (correctAnswers < limit) {
+    return runGame(correctAnswers + 1, limit, createQuestion);
   }
 
   return GAME_RESULTS.WIN;

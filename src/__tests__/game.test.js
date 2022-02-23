@@ -11,8 +11,10 @@ import * as helper from '../games/brain-even/helper.js';
 import {
   CORRECT_ANSWER_COUNTER_LIMIT,
   GAME_RESULTS,
+  questionMsg,
+  START_ANSWER_COUNT,
+  wrongMsg,
 } from '../constants.js';
-import initStore from '../store.js';
 import getOptions from '../games/brain-even/model.js';
 
 describe('brain-even runGame', () => {
@@ -29,17 +31,16 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('yes')
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes');
-    const state = initStore();
 
-    expect(runGame(state, CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions())).toBe(GAME_RESULTS.WIN);
-    expect(state.getCounter()).toBe(3);
+    expect(runGame(START_ANSWER_COUNT, CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions()))
+      .toBe(GAME_RESULTS.WIN);
     expect(console.log.mock.calls).toEqual([
       ['Answer "yes" if the number is even, otherwise answer "no".'],
-      ['Question: 34'],
+      [questionMsg, 34],
       ['Correct!'],
-      ['Question: 1'],
+      [questionMsg, 1],
       ['Correct!'],
-      ['Question: 52'],
+      [questionMsg, 52],
       ['Correct!'],
     ]);
   });
@@ -53,18 +54,17 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes')
       .mockReturnValueOnce('no');
-    const state = initStore();
 
-    expect(runGame(state, CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions())).toBe(GAME_RESULTS.LOSE);
-    expect(state.getCounter()).toBe(2);
+    expect(runGame(START_ANSWER_COUNT, CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions()))
+      .toBe(GAME_RESULTS.LOSE);
     expect(console.log.mock.calls).toEqual([
       ['Answer "yes" if the number is even, otherwise answer "no".'],
-      ['Question: 5'],
+      [questionMsg, 5],
       ['Correct!'],
-      ['Question: 10'],
+      [questionMsg, 10],
       ['Correct!'],
-      ['Question: 52'],
-      ['\'no\' is wrong answer ;(. Correct answer was \'yes\'.'],
+      [questionMsg, 52],
+      [wrongMsg, 'no', 'yes'],
     ]);
   });
 });

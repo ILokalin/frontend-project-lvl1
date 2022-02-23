@@ -1,22 +1,15 @@
-import {
-  showMessage,
-  showGreeting,
-  getName,
-} from './utils/console.js';
-import { FINAL_TYPES } from './games/brain-even/constants.js';
 import getOptions from './model.js';
 import runGame from './game.js';
-import initStore from './store.js';
 import {
+  FINAL_TYPES,
   CORRECT_ANSWER_COUNTER_LIMIT,
-  welcomeMsg,
+  START_ANSWER_COUNT,
 } from './constants.js';
+import greetPlayer from './cli.js';
 
 const app = (game) => {
-  showMessage(welcomeMsg);
-  const name = getName();
-  showGreeting(name);
-  const gameResult = runGame(initStore(), CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions(game));
+  const name = greetPlayer();
+  const gameResult = runGame(START_ANSWER_COUNT, CORRECT_ANSWER_COUNTER_LIMIT, ...getOptions(game));
   FINAL_TYPES[gameResult](name);
 };
 
