@@ -1,8 +1,20 @@
-import { getRandomByRange } from '../../utils.js';
 import {
-  ANSWERS,
-  LIMITS,
-} from './constants.js';
+  getRandomByRange,
+} from '../utils.js';
+
+export const LIMITS = Object.freeze({
+  MIN: 0,
+  MAX: 500,
+});
+
+export const rulesMsg = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+export const PRIME = 'PRIME';
+export const COMPOSITE = 'COMPOSITE';
+export const ANSWERS = Object.freeze({
+  [PRIME]: 'yes',
+  [COMPOSITE]: 'no',
+});
 
 // eslint-disable-next-line no-bitwise
 export const getNearOdd = (value) => value | 1;
@@ -28,3 +40,7 @@ export const createQuestion = () => {
     expectedAnswer: getExpectedAnswer(question),
   };
 };
+
+const getOptions = () => ({ createQuestion, rulesMsg });
+
+export default getOptions;

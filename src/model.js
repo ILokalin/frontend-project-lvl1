@@ -1,8 +1,8 @@
-import getBrainCalcOptions from './games/brain-calc/model.js';
-import getBrainEvenOptions from './games/brain-even/model.js';
-import getBrainGcdOptions from './games/brain-gcd/model.js';
-import getBrainProgressionOptions from './games/brain-progression/model.js';
-import getBrainPrimeOptions from './games/brain-prime/model.js';
+import getBrainCalcOptions from './games/brain-calc.js';
+import getBrainEvenOptions from './games/brain-even.js';
+import getBrainGcdOptions from './games/brain-gcd.js';
+import getBrainProgressionOptions from './games/brain-progression.js';
+import getBrainPrimeOptions from './games/brain-prime.js';
 
 export const GAMES = Object.freeze({
   EVEN: 'EVEN',
@@ -12,14 +12,21 @@ export const GAMES = Object.freeze({
   PRIME: 'PRIME',
 });
 
-const GAMES_OPTIONS = Object.freeze({
-  [GAMES.EVEN]: getBrainEvenOptions,
-  [GAMES.CALC]: getBrainCalcOptions,
-  [GAMES.GCD]: getBrainGcdOptions,
-  [GAMES.PROGRESSION]: getBrainProgressionOptions,
-  [GAMES.PRIME]: getBrainPrimeOptions,
-});
-
-const getOptions = (game) => GAMES_OPTIONS[game]();
+const getOptions = (game) => {
+  switch (game) {
+    case GAMES.EVEN:
+      return getBrainEvenOptions();
+    case GAMES.CALC:
+      return getBrainCalcOptions();
+    case GAMES.GCD:
+      return getBrainGcdOptions();
+    case GAMES.PROGRESSION:
+      return getBrainProgressionOptions();
+    case GAMES.PRIME:
+      return getBrainPrimeOptions();
+    default:
+      return getBrainEvenOptions();
+  }
+};
 
 export default getOptions;

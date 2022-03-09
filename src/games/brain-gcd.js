@@ -1,5 +1,13 @@
-import { getRandomByRange } from '../../utils.js';
-import { LIMITS } from './constants.js';
+import {
+  getRandomByRange,
+} from '../utils.js';
+
+export const LIMITS = Object.freeze({
+  MIN: 0,
+  MAX: 100,
+});
+
+export const rulesMsg = 'Find the greatest common divisor of given numbers.';
 
 export const getGreatestCommonDivisor = (a, b) => {
   if (a === 0 || b === 0) {
@@ -20,3 +28,7 @@ export const createQuestion = () => {
     expectedAnswer,
   };
 };
+
+const getOptions = () => ({ createQuestion, rulesMsg });
+
+export default getOptions;

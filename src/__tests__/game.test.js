@@ -7,14 +7,13 @@ import {
 } from '@jest/globals';
 import readlineSync from 'readline-sync';
 import runGame from '../game.js';
-import * as helper from '../games/brain-even/question.js';
+import * as brainEven from '../games/brain-even.js';
 import {
   ANSWER_COUNT,
   GAME_RESULTS,
   questionMsg,
   wrongMsg,
 } from '../constants.js';
-import getOptions from '../games/brain-even/model.js';
 
 describe('brain-even runGame', () => {
   beforeEach(() => {
@@ -22,7 +21,7 @@ describe('brain-even runGame', () => {
   });
   it('runGame should be return WIN with correct answers', () => {
     // eslint-disable-next-line
-    helper["createQuestion"] = jest.fn()
+    brainEven["createQuestion"] = jest.fn()
       .mockReturnValueOnce({ question: 34, expectedAnswer: 'yes' })
       .mockReturnValueOnce({ question: 1, expectedAnswer: 'no' })
       .mockReturnValueOnce({ question: 52, expectedAnswer: 'yes' });
@@ -31,7 +30,10 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('no')
       .mockReturnValueOnce('yes');
 
-    expect(runGame(ANSWER_COUNT.START, ANSWER_COUNT.LIMIT, getOptions()))
+    expect(runGame(ANSWER_COUNT.START, ANSWER_COUNT.LIMIT, {
+      createQuestion: brainEven.createQuestion,
+      rulesMsg: brainEven.rulesMsg,
+    }))
       .toBe(GAME_RESULTS.WIN);
     expect(console.log.mock.calls).toEqual([
       ['Answer "yes" if the number is even, otherwise answer "no".'],
@@ -45,7 +47,7 @@ describe('brain-even runGame', () => {
   });
   it('processGame should be return LOSE with incorrect answers', () => {
     // eslint-disable-next-line
-    helper["createQuestion"] = jest.fn()
+    brainEven["createQuestion"] = jest.fn()
       .mockReturnValueOnce({ question: 5, expectedAnswer: 'no' })
       .mockReturnValueOnce({ question: 10, expectedAnswer: 'yes' })
       .mockReturnValueOnce({ question: 52, expectedAnswer: 'yes' });
@@ -54,7 +56,10 @@ describe('brain-even runGame', () => {
       .mockReturnValueOnce('yes')
       .mockReturnValueOnce('no');
 
-    expect(runGame(ANSWER_COUNT.START, ANSWER_COUNT.LIMIT, getOptions()))
+    expect(runGame(ANSWER_COUNT.START, ANSWER_COUNT.LIMIT, {
+      createQuestion: brainEven.createQuestion,
+      rulesMsg: brainEven.rulesMsg,
+    }))
       .toBe(GAME_RESULTS.LOSE);
     expect(console.log.mock.calls).toEqual([
       ['Answer "yes" if the number is even, otherwise answer "no".'],

@@ -1,16 +1,31 @@
 import {
   describe,
   expect,
-  it, jest,
+  it,
+  jest,
 } from '@jest/globals';
-import * as utils from '../../../utils.js';
-import {
+import * as utils from '../../utils.js';
+import getOptions, {
   createQuestion,
   getExpectedAnswer,
   getNearOdd,
-} from '../question.js';
+  rulesMsg,
+} from '../brain-prime.js';
 
-describe('brain-prime helper', () => {
+describe('brain-gcd', () => {
+  const { createQuestion: testCreateQuestion, rulesMsg: rules } = getOptions();
+  it('should be contain question and answer', () => {
+    expect(testCreateQuestion()).toEqual(
+      expect.objectContaining({
+        question: expect.any(Number),
+        expectedAnswer: expect.any(String),
+      }),
+    );
+  });
+  it('should be message of brainGCD game', () => {
+    expect(rules).toBe(rulesMsg);
+  });
+
   describe('getNearOdd', () => {
     it('should be correct value to odd', () => {
       expect(getNearOdd(6)).toBe(7);
